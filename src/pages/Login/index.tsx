@@ -1,4 +1,4 @@
-
+import MyInput from '../../components/MyInput'
 import './styles.scss'
 
 export default function LoginPage() {
@@ -7,8 +7,11 @@ export default function LoginPage() {
     let password = ''
 
     function signIn() {
-        console.log('Login: '+ username)
-        console.log('Senha: '+ password)
+        if (username === 'uedsonreis' && password === '123456') {
+            alert('Usuário logado com sucesso')
+        } else {
+            alert('Login/senha inválido(a)')
+        }
     }
 
     return (
@@ -16,15 +19,8 @@ export default function LoginPage() {
             <header>Página de Acesso</header>
             
             <main>
-                <div>
-                    <div>Login:</div>
-                    <input type="text" onChange={e => username = e.target.value} />
-                </div>
-                
-                <div>
-                    <div>Senha:</div>
-                    <input type="password" onChange={e => password = e.target.value}/>
-                </div>
+                <MyInput label='Login' value={username} change={value => username = value} />
+                <MyInput label='Senha' value={password} change={value => password = value} type="password" />
             </main>
 
             <footer>
