@@ -2,7 +2,7 @@ import './styles.scss'
 
 type Props = {
     label: string
-    value: string
+    value?: string
     change: (value: string) => void
     type?: React.HTMLInputTypeAttribute
 }

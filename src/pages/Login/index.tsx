@@ -1,4 +1,6 @@
+import MyButton from '../../components/MyButton'
 import MyInput from '../../components/MyInput'
+
 import './styles.scss'
 
 export default function LoginPage() {
@@ -19,12 +21,12 @@ export default function LoginPage() {
             <header>Página de Acesso</header>
             
             <main>
-                <MyInput label='Login' value={username} change={value => username = value} />
-                <MyInput label='Senha' value={password} change={value => password = value} type="password" />
+                <MyInput label='Login' change={value => username = value} />
+                <MyInput label='Senha' change={value => password = value} type="password" />
             </main>
 
             <footer>
-                <button onClick={signIn}>Entrar</button>
+                <MyButton title='Entrar' click={signIn} />
             </footer>
         </div>
     )

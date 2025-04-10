@@ -1,6 +1,7 @@
 import React from 'react'
 
 import MyInput from '../../components/MyInput'
+import MyButton from '../../components/MyButton'
 
 import './styles.scss'
 
@@ -44,7 +45,7 @@ export default function CreateUser() {
             </main>
 
             <footer>
-                <button onClick={save}>Salvar</button>
+                <MyButton title='Salvar' click={save} />
             </footer>
         </div>
     )
