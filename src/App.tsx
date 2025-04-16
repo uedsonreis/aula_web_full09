@@ -1,14 +1,18 @@
-import React from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import LoginPage from './pages/Login'
+import HomePage from './pages/Home'
 import CreateUserPage from './pages/User/create'
 
-function App() {
+const router = createBrowserRouter([
+    { path: "/", Component: LoginPage },
+    { path: "/login", Component: LoginPage },
+    { path: "/home", Component: HomePage },
+    { path: "/users/create", Component: CreateUserPage },
+])
+
+export default function App() {
     return (
-        <div>
-            <LoginPage />
-        </div>
+        <RouterProvider router={router} />
     )
 }
-
-export default App
