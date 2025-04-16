@@ -1,5 +1,14 @@
 
 const url = 'http://localhost:3030/auth/login'
+const TOKEN_KEY = '@AUTH_TOKEN'
+
+export function getToken() {
+    return localStorage.get(TOKEN_KEY)
+}
+
+export function logoff() {
+    localStorage.removeItem(TOKEN_KEY)
+}
 
 export async function login(username: string, password: string) {
 
@@ -12,6 +21,7 @@ export async function login(username: string, password: string) {
     const data = await response.json()
 
     if (data && data.token) {
+        localStorage.setItem(TOKEN_KEY, data.token)
         return true
     }
 
