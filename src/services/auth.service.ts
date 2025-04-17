@@ -3,7 +3,7 @@ const url = 'http://localhost:3030/auth/login'
 const TOKEN_KEY = '@AUTH_TOKEN'
 
 export function getToken() {
-    return localStorage.get(TOKEN_KEY)
+    return localStorage.getItem(TOKEN_KEY)
 }
 
 export function logoff() {

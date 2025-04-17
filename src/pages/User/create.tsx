@@ -1,4 +1,7 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import * as userService from '../../services/user.service'
 
 import MyInput from '../../components/MyInput'
 import MyButton from '../../components/MyButton'
@@ -6,6 +9,7 @@ import MyButton from '../../components/MyButton'
 import './styles.scss'
 
 export default function CreateUser() {
+    const navigate = useNavigate()
 
     const [name, setName] = React.useState('')
     const [username, setUsername] = React.useState('')
@@ -30,7 +34,15 @@ export default function CreateUser() {
             return
         }
 
-        console.log('Usuário salvo com sucesso')
+        userService.save(name, username, password).then(code => {
+            if (code === 201) {
+                navigate('/home')
+            } else if (code === 400) {
+                alert('username já cadastro!')
+            } else {
+                navigate('/login')
+            }
+        })
     }
 
     return(
